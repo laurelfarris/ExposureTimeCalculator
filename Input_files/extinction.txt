@@ -1,3 +1,7 @@
+# This file was pulled from the class notes, but it's probably not correct,
+# and I have no idea what 'b' and 'f' are. I doubt that either one is
+# wavelength.
+
 # b f
 -3 1
 -2 0.97
@@ -5,4 +9,3 @@
 0 0.5
 1 0.111
 2 0.000
-
