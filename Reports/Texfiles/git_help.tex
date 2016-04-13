@@ -7,13 +7,12 @@
 \usepackage{color}
 \definecolor{cobalt}{rgb}{0.0,0.28,0.67}
 \usepackage{hyperref}
-\hypersetup{
+\hypersetup{%
     colorlinks=true,
-    urlcolor=blue,
-}
+    urlcolor=blue}
 \urlstyle{same}
 
-\title{How to use github for collaberative coding}
+\title{How to use github for collaborative coding}
 \date{}
 
 
@@ -25,7 +24,25 @@
 This is the beginning of what will hopefully be a useful reference/how-to
 for using github. It's a giant mess at the moment.
 
-\section{Cloning}
+\section{Adding and committing}
+\verb|git add| adds your modified files to the ``queue'' to be committed
+later.
+
+\begin{verbatim}
+cl> git add filename
+cl> git add -A
+\end{verbatim}
+
+\verb|git commit| commits the files that have been added and creates a
+new revision with a log. \verb|git add| and \verb|git commit| update your
+local repository, but don't do anything to the remote.
+
+The two actions
+can be combined with \verb|git commit -a|. This will open up a file;
+write the \verb|commit| message at the top, then close this file.
+Then do \verb|git push|.
+
+\section{Clone}
 Cloning is essentially the same as making a copy. Any changes made
 in the original repository will not be reflected in your copy unless
 you do a \texttt{git pull} command.
@@ -60,10 +77,10 @@ cl> git remote add nameofremote https://github.com/holtzmanjon/a575.git
 cl> git pull nameofremote
 \end{verbatim}
 
-\section{Forking}
+\section{Fork}
 Forking a repository will register the project under your own username.
 
-\section{Merging}
+\section{Merge}
 
 \section{Branches}
 \begin{verbatim}
