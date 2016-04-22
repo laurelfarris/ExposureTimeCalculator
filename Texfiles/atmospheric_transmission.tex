@@ -1,0 +1,37 @@
+\documentclass[12]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{mdwlist}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.75em}
+
+\title{Documentation for atmospheric transmission code}
+\author{Laurel Farris}
+\date{\today}
+
+
+\begin{document}
+\vspace{-2in}
+\maketitle
+
+\section*{Intro}
+This document describes the thought processes, required math, etc.\
+for the code \verb|atmospheric_transmission.py|.
+
+\section*{Math}
+
+The following is the math carried out to get the atmospheric transmission,
+$a_{\lambda}$ in terms of the user input:
+\begin{itemize*}
+    \item object magnitude: $M_{obj}$
+    \item airmass: $X$
+\end{itemize*}
+$M_{net}$ is the ``net'' transmitted magnitude observed from the ground.
+Equations
+
+$$ M_{net} = M_{obj} + kX $$
+$$ M_{net} - M_{obj} = -2.5\log\left(\frac{F_{net}}{F_{obj}}\right) $$
+$$ M_{net} - M_{obj} = -2.5\log\left(a\right) $$
+$$ a = 10^{\wedge}\left(\frac{M_{net}-M_{obj}}{-2.5}\right) $$
+$$ a = 10^{\wedge}\left(\frac{kX}{-2.5}\right) $$
+
+\end{document}
