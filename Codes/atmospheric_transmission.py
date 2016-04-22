@@ -1,5 +1,8 @@
 '''
-Atmospheric transmission, a (extinction, refraction, etc.)
+Programmer:     Laurel Farris
+Last updated:   4/21/16
+Description:    Calculate Atmospheric transmission, a
+                (extinction, refraction, etc.)
 '''
 
 import numpy as np
@@ -31,6 +34,7 @@ def atm_transmission(bandpass, object_mag, airmass)
     '''
     f = open('../Input_files/extinction.txt')
     for line in f:
+        ''' Disregard comments '''
         if not line.strip().startswith("#"):
             wavelength,k = np.loadtxt(f, unpack=True)
 
@@ -39,11 +43,6 @@ def atm_transmission(bandpass, object_mag, airmass)
     This work is from the class notes under
     'Airmass and zenith distance dependence'.
     '''
-    net_mag = object_mag + k*airmass
-    net_mag - object_mag = -2.5*math.log10(net_flux/object_flux)
-    net_mag - object_mag = -2.5*math.log10(a)
-    a = 10.^((net_mag - object_mag)/-2.5)
-    a = 10.^((k*airmass)/-2.5)
 
     ''' Value to be returned in code '''
     return 10.^(k*airmass / -2.5)

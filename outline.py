@@ -7,15 +7,16 @@ calculate an exposure time.
 '''
 
 
-def exposure_time_calculater(?):
+def exposure_time_calculater(inst, seeing, airmass, moon, flux):
     '''
-    User input: object magnitude
-                desired S/N
-                telescope
-                instrument
-                bandpass/wavelength
-                moon phase
-                airmass
+    User input:
+        instrument (ARCTIC or DIS)
+        seeing
+        airmass
+        moon phase
+        flux (spectrum*, magnitude*, or blackbody
+
+    (* needs interpolation)
     '''
 
 
@@ -46,7 +47,7 @@ def exposure_time_calculater(?):
         return q
 
 
-    return exposure_time
+    return ((SN)**2)*
 
 
 exposure_time = exposure_time_calculater()
