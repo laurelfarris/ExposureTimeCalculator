@@ -38,12 +38,5 @@ def atm_transmission(bandpass, object_mag, airmass)
         if not line.strip().startswith("#"):
             wavelength,k = np.loadtxt(f, unpack=True)
 
-    '''
-    Math (not to be used in actual code)
-    This work is from the class notes under
-    'Airmass and zenith distance dependence'.
-    '''
-
-    ''' Value to be returned in code '''
-    return 10.^(k*airmass / -2.5)
-
+    ''' Return atmospheric transmission '''
+    return 10.**(k*airmass / -2.5)
