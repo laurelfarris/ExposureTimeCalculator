@@ -7,6 +7,7 @@
 # wavelength units are angstroms
 # flux units are erg cm-2 s-1 angstrom-1
 
+wavelength flux
 900.500 1.68894E-17
 901.500 1.73505E-17
 902.500 1.78256E-17
