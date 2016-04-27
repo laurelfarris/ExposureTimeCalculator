@@ -13,30 +13,26 @@ from astropy import constants as const
 c = const.c.cgs.value
 h = const.h.cgs.value
 
-def atm_transmission(bandpass, object_mag, airmass)
+def atm_transmission(bandpass, airmass):
     '''
     Calculate the atmospheric transmission (a),
-    which should be between 0 and 1
-    (fraction of total light from object that made it through the atmosphere).
-
-      ``the amount of light lost [magnitudes] can be specified by a
-        set of extinction coefficients''.
-
-    net_mag is the magnitude at the bottom of the atmosphere,
-    k is the (POSITIVE) extinction coefficient, to be read in from a file
-    using the bandpass information (still need to figure out how to do this).
     '''
 
-    '''
-    Open files (path is RELATIVE at the moment... better to do this
-    differently? Or put the input files in the same directory as the
-    codes themselves?
-    '''
+    ''' Open files '''
     f = open('../Input_files/extinction.txt')
     for line in f:
         ''' Disregard comments '''
         if not line.strip().startswith("#"):
-            wavelength,k = np.loadtxt(f, unpack=True)
+            wavelength,extinction = np.loadtxt(f, unpack=True)
+            break
+    for i in range(0,len(wavelength)+1):
+        if bandpass == wavelength[i]:
+            k = extinction[i]
+            break
 
-    ''' Return atmospheric transmission '''
+    ''' Calculate and return atmospheric transmission '''
     return 10.**(k*airmass / -2.5)
+
+
+a = atm_transmission(-3, 1.2)
+print a
